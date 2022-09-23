@@ -16,7 +16,7 @@ function rand_Pass($upper = 1, $lower = 5, $numeric = 3, $other = 2){
     }
     $contraseñaArray = str_split($contraseña);
     shuffle($contraseñaArray);
-    return $contraseñaArray;
+    return implode($contraseñaArray);
 }
-    print_r(rand_Pass());
+    echo(rand_Pass());
 ?> 

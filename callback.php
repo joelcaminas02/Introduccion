@@ -1,5 +1,6 @@
 <?php
     $array = ['messi', 'Juan Alberto', 'papallona', 'hamburguesa', 'filipinos'];
 
-    //array_map('calleable', strlen(), $array);
+    $array = array_map('strlen', $array);
+    print_r($array);
 ?>

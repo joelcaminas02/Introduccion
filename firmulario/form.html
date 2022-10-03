@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2>Formulario:</h2>
+
+<form action="form.php" method="post" enctype="multipart/form-data">
+
+    Nombre:
+    <input type="text" name="nombre" maxlength="50"><br>
+    Correo:
+    <input type="text" name="password"><br>
+    Educación:
+    <select name="educacion">
+
+        <option value="sin-estudios">Sin estudios</option>
+
+        <option value="educacion-obligatoria" selected="selected">Educación Obligatoria</option>
+
+        <option value="formacion-profesional">Formación profesional</option>
+
+        <option value="universidad">Universidad</option>
+
+    </select> <br>
+    Avatar
+    <input type="file" name="avatar"><br>
+    // Botón de enviar
+    <input type="submit" name="submit" value="Enviar">
+
+</form>
+
+</body>
+
+</html>
+</body>
+</html>

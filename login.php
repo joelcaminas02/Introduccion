@@ -20,14 +20,20 @@ $pdo = new PDO(
 
 $opciones);
 
-$pdoSt = $pdo->prepare('INSERT INTO users (username,email,password) values (?,?,?)');
-$nombre = $_POST['nombre'] ?? "";
-$correo= $_POST['correo'] ?? "";
-$contraseña = $_POST['password'] ?? "";
-$pdoSt->bindParam(1,$nombre);
-$pdoSt->bindParam(2,$correo);
-$pdoSt->bindParam(3,$contraseña);
-$pdoSt->execute();
+$nombre = $_POST['correo'] ?? "";
+$password = $_POST['passwrd'] ?? "";
+
+$pdoSt = $pdo->query("SELECT email from users WHERE email = '$nombre' AND password = '$password'");
+
+if($nombre = $pdoSt->fetch()){
+    echo 'Entrado';
+    $_SESSION['nombre'] = $nombre;
+}else{
+    echo'El email o la contraseña son incorrectos';
+    //header('Location: registro.php');
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,16 +46,11 @@ $pdoSt->execute();
 <body>
 <h2>Formulario:</h2>
 
-<form method="post" enctype="multipart/form-data">
-
-    Nombre:
-    <input type="text" name="nombre" maxlength="50"><br>
+<form method="POST" enctype="multipart/form-data">
     Correo:
     <input type="text" name="correo"><br>
     Contraseña:
-    <input type="password" name="password"><br>
-    Confirmar Contraseña
-    <input type="password" name="password2"><br>
+    <input type="password" name="passwrd"><br>
     // Botón de enviar
     <input type="submit" name="submit" value="Enviar">
 
